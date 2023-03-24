@@ -9,6 +9,7 @@ app.use(morgan("dev"));
 app.use(helmet());
 app.use(compression());
 // init DB
+require("./database/init.mongodb");
 // init routes
 app.get("/", (req, res, next) => {
   const strCompress = "Hello Framework Express";
