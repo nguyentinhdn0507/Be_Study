@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
-const connectString = "mongodb+srv://nguyentinhdn0507:Mrtinhdn0507@shopecommerce.rjylqha.mongodb.net/?retryWrites=true&w=majority";
-// const connectString = "mongodb://localhost:27017/shopEcommerce";
+require("dotenv").config();
+// const connectString = "mongodb+srv://nguyentinhdn0507:Mrtinhdn0507@shopecommerce.rjylqha.mongodb.net/?retryWrites=true&w=majority";
+const connectString = process.env.URL_MONGODB;
 class DataBase {
   constructor() {
     this.connect();
   }
-  connect(type ='mongodb') {
-    if(1===1){
-        mongoose.set('debug', true);
-        mongoose.set('debug', {color:true});
+  connect(type = "mongodb") {
+    if (1 === 1) {
+      mongoose.set("debug", true);
+      mongoose.set("debug", { color: true });
     }
     mongoose
       .connect(connectString)
@@ -16,8 +17,8 @@ class DataBase {
       .catch((err) => console.log(`Error: ${err}`));
   }
   static getInstance() {
-    if(!DataBase.instance){
-        DataBase.instance = new DataBase();
+    if (!DataBase.instance) {
+      DataBase.instance = new DataBase();
     }
     return DataBase.instance;
   }
