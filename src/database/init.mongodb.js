@@ -6,21 +6,17 @@ class DataBase {
   constructor() {
     this.connect();
   }
-  connect(type = "mongodb") {
+  async connect(type = "mongodb") {
     if (1 === 1) {
       mongoose.set("debug", true);
       mongoose.set("debug", { color: true });
     }
-    mongoose
-      .connect(connectString)
-      .then((_) => console.log(`Connected to MongoDB Success`))
-      .catch((err) => console.log(`Error: ${err}`));
-  }
-  static getInstance() {
-    if (!DataBase.instance) {
-      DataBase.instance = new DataBase();
+    try {
+      await mongoose.connect(connectString);
+      console.log(`Connected to MongoDB Success`);
+    } catch (err) {
+      console.log(`Error: ${err}`);
     }
-    return DataBase.instance;
   }
 }
 const instanceMongoDB = DataBase.getInstance();
