@@ -10,7 +10,7 @@
 
 * Step 1 Setup tool MongoCompass
 
-- image.png
+- https://www.mongodb.com/try/download/compass
 
 * Step 2 Setup mongoDb Community
 
