@@ -17,3 +17,5 @@
 - brew tap mongodb/brew
 - brew install mongodb-community@6.0
 - brew services start mongodb-community@6.0
+
+  #compression : giúp giảm tải vận chuyển dữ liệu giữa client và server
