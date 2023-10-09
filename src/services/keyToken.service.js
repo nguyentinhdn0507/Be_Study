@@ -8,7 +8,7 @@ class KeyTokenService {
         publicKey,
         privateKey,
       });
-      return token ? token.publickey : null;
+      return token ? token.publicKey : null;
     } catch (error) {
       return error;
     }

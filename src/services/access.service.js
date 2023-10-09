@@ -49,6 +49,7 @@ class AccessService {
         publicKey,
         privateKey,
       });
+      console.log("keyStore:::::::::::", keyStore);
       if (!keyStore) {
         throw new BadRequestError("Error: Key Store Error");
       }
